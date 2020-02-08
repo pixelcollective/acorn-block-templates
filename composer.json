@@ -1,0 +1,36 @@
+{
+  "name": "tiny-pixel/acorn-block-templates",
+  "type": "package",
+  "license": "MIT",
+  "description": "Block templates for Sage 10",
+  "authors": [
+    {
+      "name": "Kelly Mears",
+      "email": "kelly@tinypixel.dev"
+    }
+  ],
+  "keywords": [
+    "wordpress",
+    "acorn",
+    "sage",
+    "gutenberg"
+  ],
+  "support": {
+    "issues": "https://github.com/pixelcollective/acorn-block-templates/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "TinyPixel\\BlockTemplates\\": "./src/"
+    }
+  },
+  "require": {
+    "php": ">=7.2"
+  },
+  "extra": {
+    "acorn": {
+      "providers": [
+        "TinyPixel\\BlockTemplates\\Providers\\BlockTemplatesServiceProvider"
+      ]
+    }
+  }
+}
