@@ -18,7 +18,7 @@ $ composer require tiny-pixel/acorn-block-templates
 
 ## Usage
 
-Create a `blocks` directory in `resources/assets/views`. Templates should be named after the block they target and should be placed within a directory with a name matching the block's namespace.
+Create a `blocks` directory in `resources/views`. Templates should be named after the block they target and should be placed within a directory with a name matching the block's namespace.
 
 **Example**
 ```sh
