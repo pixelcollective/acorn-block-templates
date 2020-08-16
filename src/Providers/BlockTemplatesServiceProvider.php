@@ -19,7 +19,7 @@ class BlockTemplatesServiceProvider extends ServiceProvider
     {
         $this->blocks = Collection::make();
 
-        add_action('init', [$this, 'registerBlockTemplates']);
+        add_action('init', [$this, 'registerBlockTemplates'], 9);
     }
 
     /**
