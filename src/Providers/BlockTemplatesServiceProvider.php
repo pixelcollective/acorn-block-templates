@@ -99,7 +99,7 @@ class BlockTemplatesServiceProvider extends ServiceProvider
      */
     protected function hasContent($content): bool
     {
-        return !empty(wp_strip_all_tags($content, true));
+        return !empty(wp_strip_all_tags($content, true)) || preg_match('/<(img|video|figure)/i', $content);
     }
 
     /**
