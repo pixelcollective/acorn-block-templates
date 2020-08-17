@@ -19,7 +19,7 @@ class BlockTemplatesServiceProvider extends ServiceProvider
     {
         $this->blocks = Collection::make();
 
-        add_action('init', [$this, 'registerBlockTemplates'], 9);
+        add_action('init', [$this, 'registerBlockTemplates']);
     }
 
     /**
@@ -44,11 +44,19 @@ class BlockTemplatesServiceProvider extends ServiceProvider
     public function registerBlockTemplates(): void
     {
         $this->blocks->each(function ($block) {
-            register_block_type($block, [
+            $args = [
                 'render_callback' => function ($attributes, $content) use ($block) {
                     return $this->renderBlock($block, $attributes, $content);
                 },
-            ]);
+            ];
+
+            $blockType = \WP_Block_Type_Registry::get_instance()->get_registered($block);
+
+            if ($blockType) {
+                return $blockType->set_props($args);
+            }
+
+            register_block_type($block, $args);
         });
     }
 
